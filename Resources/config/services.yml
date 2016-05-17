@@ -2,4 +2,8 @@ services:
     glory_menu.menu_manager:
         class: Glory\Bundle\MenuBundle\Model\MenuManager
         arguments: [@service_container]
-
+    glory_menu.menu_provider:
+        class: Glory\Bundle\MenuBundle\Menu\Provider\MenuProvider
+        arguments: [@glory_menu.menu_manager]
+        tags:
+          - { name: knp_menu.provider }
