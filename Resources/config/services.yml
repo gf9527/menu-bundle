@@ -1,4 +1,5 @@
 services:
-#    glory_menu.example:
-#        class: Glory\Bundle\MenuBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    glory_menu.menu_manager:
+        class: Glory\Bundle\MenuBundle\Model\MenuManager
+        arguments: [@service_container]
+
