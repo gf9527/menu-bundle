@@ -55,16 +55,24 @@ class MenuManager
         return new $class();
     }
 
-    public function findOneBy($criteria)
+    public function findMenu($criteria)
     {
         $repository = $this->getDoctrine()->getRepository($this->getOAuthClass());
         return $repository->findOneBy($criteria);
     }
 
-    public function findBy($criteria)
+    public function findMenus($criteria)
     {
         $repository = $this->getDoctrine()->getRepository($this->getOAuthClass());
         return $repository->findBy($criteria);
+    }
+
+    public function findMenuByName($name)
+    {
+        $criteria = [
+            'name' => $name
+        ];
+        return $this->findMenu($criteria);
     }
 
     /**
