@@ -85,7 +85,7 @@ class Menu extends BaseMenu
      *
      * @ORM\OneToMany(targetEntity="Menu", mappedBy="parent", cascade={"all"})
      */
-    protected $children;
+    protected $children = array();
 
     /**
      * Parent item
