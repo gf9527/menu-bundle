@@ -7,3 +7,17 @@ services:
         arguments: [@glory_menu.menu_manager]
         tags:
           - { name: knp_menu.provider }
+
+    glory_menu.form.menu_type:
+        class: Glory\Bundle\MenuBundle\Form\Type\MenuType
+        arguments: [@glory_menu.menu_manager]
+        tags:
+            - { name: form.type, alias: glory_menu }
+    glory_menu.form.menu_attrs_type:
+        class: Glory\Bundle\MenuBundle\Form\Type\AttributesType
+        tags:
+            - { name: form.type, alias: glory_menu_attributes }
+    glory_menu.form.menu_link_type:
+        class: Glory\Bundle\MenuBundle\Form\Type\LinkType
+        tags:
+            - { name: form.type, alias: glory_menu_link }
