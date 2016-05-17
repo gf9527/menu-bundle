@@ -31,6 +31,7 @@ class Menu extends MenuItem implements MenuInterface
      * @var boolean 
      */
     protected $expand = true;
+    protected $weight;
 
     public function __construct($name = null)
     {
@@ -58,6 +59,17 @@ class Menu extends MenuItem implements MenuInterface
     public function getDisplay()
     {
         return $this->display;
+    }
+
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+        return $this;
+    }
+
+    public function getWeight()
+    {
+        return $this->weight;
     }
 
 }

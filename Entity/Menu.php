@@ -53,18 +53,11 @@ class Menu extends BaseMenu
     protected $uri = null;
 
     /**
-     * attributes
+     * Weight
      *
-     * @ORM\Column(type="array")
+     * @ORM\Column(name="weight", type="integer")
      */
-    protected $attributes = array();
-
-    /**
-     * link Attributes
-     *
-     * @ORM\Column(name="link_attrs", type="array")
-     */
-    protected $linkAttributes = array();
+    protected $weight = 0;
 
     /**
      * display
@@ -86,6 +79,20 @@ class Menu extends BaseMenu
      * @ORM\OneToMany(targetEntity="Menu", mappedBy="parent", cascade={"all"})
      */
     protected $children = array();
+    
+    /**
+     * attributes
+     *
+     * @ORM\Column(type="array")
+     */
+    protected $attributes = array();
+
+    /**
+     * link Attributes
+     *
+     * @ORM\Column(name="link_attrs", type="array")
+     */
+    protected $linkAttributes = array();
 
     /**
      * Parent item

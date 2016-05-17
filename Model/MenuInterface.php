@@ -20,5 +20,8 @@ use Knp\Menu\ItemInterface;
  */
 interface MenuInterface extends ItemInterface
 {
-    
+
+    public function setWeight($weight);
+
+    public function getWeight();
 }
