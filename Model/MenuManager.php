@@ -32,8 +32,8 @@ class MenuManager
 
     public function setClass($class)
     {
-        if (!$class instanceof MenuInterface) {
-            throw new \LogicException(sprintf('%s must implements %s', $class, get_class(MenuInterface)));
+        if (!new $class() instanceof MenuInterface) {
+            throw new \LogicException(sprintf('%s must implements %s', $class, MenuInterface::class));
         }
         $this->class = $class;
         return $this;
