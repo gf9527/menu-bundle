@@ -57,13 +57,13 @@ class MenuManager
 
     public function findMenu($criteria)
     {
-        $repository = $this->getDoctrine()->getRepository($this->getOAuthClass());
+        $repository = $this->getDoctrine()->getRepository($this->getClass());
         return $repository->findOneBy($criteria);
     }
 
     public function findMenus($criteria)
     {
-        $repository = $this->getDoctrine()->getRepository($this->getOAuthClass());
+        $repository = $this->getDoctrine()->getRepository($this->getClass());
         return $repository->findBy($criteria);
     }
 
