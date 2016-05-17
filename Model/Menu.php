@@ -55,4 +55,9 @@ class Menu extends MenuItem implements MenuInterface
         return $this->expand;
     }
 
+    public function getDisplay()
+    {
+        return $this->display;
+    }
+
 }
