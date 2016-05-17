@@ -1,0 +1,10 @@
+form:
+    menu_name: name
+    menu_label: label
+    menu_uri: Uri
+    menu_attributes: attributes
+    menu_linkAttributes: link attributes
+    menu_display: display
+    menu_expand: expand
+    menu_parent: parent menu
+    menu_weight: weight

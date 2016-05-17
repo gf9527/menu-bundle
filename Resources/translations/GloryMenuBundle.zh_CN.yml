@@ -1,0 +1,10 @@
+form:
+    menu_name: 名称
+    menu_label: 标题
+    menu_uri: Uri
+    menu_attributes: 属性
+    menu_linkAttributes: 链接属性
+    menu_display: 显示
+    menu_expand: 展开
+    menu_parent: 上级菜单
+    menu_weight: 权重
