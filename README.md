@@ -32,3 +32,10 @@ public function registerBundles()
 
 ### KnpMenuBundle 
 @see http://symfony.com/doc/master/bundles/KnpMenuBundle/index.html
+
+### Configuration
+```yaml
+#app/conﬁg/conﬁg.yml
+glory_menu:
+    menu_class: AppBundle\Entity\Menu
+```
