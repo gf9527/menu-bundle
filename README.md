@@ -33,9 +33,38 @@ public function registerBundles()
 ### KnpMenuBundle 
 @see http://symfony.com/doc/master/bundles/KnpMenuBundle/index.html
 
-### Configuration
+### Install
+
+create Entity extend Glory\Bundle\MenuBundle\Entity\Menu
+
+```php
+//src\AppBundle\Entity\Menu
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Glory\Bundle\MenuBundle\Entity\Menu as BaseMenu;
+
+/**
+ * @ORM\Table(name="menu")
+ * @ORM\Entity
+ */
+class Menu extends BaseMenu
+{
+    //more code
+}
+```
+
+configuration config.yml glory_menu.menu_class
 ```yaml
 #app/conﬁg/conﬁg.yml
 glory_menu:
+    # The entity created earlier
     menu_class: AppBundle\Entity\Menu
+```
+
+configuration routing.yml
+```yaml
+glory_menu:
+    resource: "@GloryMenuBundle/Resources/config/routing.yml"
+    prefix:   /
 ```
