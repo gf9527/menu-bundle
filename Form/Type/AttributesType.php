@@ -26,8 +26,12 @@ class AttributesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options = array())
     {
         $builder
-                ->add('class')
-                ->add('id')
+                ->add('class', null, array(
+                    'required' => false
+                ))
+                ->add('id', null, array(
+                    'required' => false
+                ))
         ;
     }
 

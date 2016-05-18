@@ -34,13 +34,16 @@ class LinkType extends AbstractType
                         '_blank' => 'New Window',
                         '_parent' => 'Parent Window',
                         'iframe' => 'iFrame'
-                    )
+                    ),
+                    'required' => false
                 ))
                 ->add('class', TextType::class, array(
-                    'label' => 'Class'
+                    'label' => 'Class',
+                    'required' => false
                 ))
                 ->add('id', null, array(
-                    'label' => 'Id'
+                    'label' => 'Id',
+                    'required' => false
                 ))
         ;
     }
