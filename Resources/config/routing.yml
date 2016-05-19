@@ -1,3 +1,23 @@
-glory_menu_homepage:
-    path:     /
-    defaults: { _controller: GloryMenuBundle:Default:index }
+glory_menu:
+    path:     /admin/menu
+    defaults: { _controller: GloryMenuBundle:Admin:list }
+
+glory_menu_create_type:
+    path:     /admin/menu/create
+    defaults: { _controller: GloryMenuBundle:Admin:create }
+
+glory_menu_create:
+    path: /admin/menu/create/{name}
+    defaults: { _controller: GloryMenuBundle:Admin:create }
+
+glory_menu_edit:
+    path:     /admin/menu/{name}/edit
+    defaults: { _controller: GloryMenuBundle:Admin:edit }
+
+glory_menu_delete:
+    path:     /admin/menu/{name}/delete
+    defaults: { _controller: GloryMenuBundle:Admin:delete }
+
+glory_menu_show:
+    path:     /admin/menu/{name}
+    defaults: { _controller: GloryMenuBundle:Admin:show }
