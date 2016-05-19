@@ -1,4 +1,7 @@
 form:
+    id: ID
+    class: 样式
+    target: 目标
     menu_name: 名称
     menu_label: 标题
     menu_uri: Uri
