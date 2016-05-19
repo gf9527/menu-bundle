@@ -79,9 +79,9 @@ class Menu extends BaseMenu
      * @ORM\OneToMany(targetEntity="Menu", mappedBy="parent", cascade={"all"})
      */
     protected $children = array();
-    
+
     /**
-     * attributes
+     * Attributes
      *
      * @ORM\Column(type="array")
      */
@@ -93,6 +93,13 @@ class Menu extends BaseMenu
      * @ORM\Column(name="link_attrs", type="array")
      */
     protected $linkAttributes = array();
+
+    /**
+     * Children Attributes
+     *
+     * @ORM\Column(name="children_attrs", type="array")
+     */
+    protected $childrenAttributes = array();
 
     /**
      * Parent item

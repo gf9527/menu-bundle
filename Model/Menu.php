@@ -27,6 +27,24 @@ class Menu extends MenuItem implements MenuInterface
     protected $id;
 
     /**
+     * attributes,linkAttributes,childrenAttributes explain
+     * code
+     *  <ul>
+     *      <li {$attributes}>
+     *          <a href="/" {$linkAttributes}>Home</a>
+     *          <ul ${childrenAttributes}>
+     *              <li {$child::attributes}>
+     *                  <a href="#">Next</a>
+     *              </li>
+     *          </ul>
+     *      </li>
+     *  </ul>
+     */
+    protected $attributes = array();
+    protected $linkAttributes = array();
+    protected $childrenAttributes = array();
+
+    /**
      * 是否展开
      * @var boolean 
      */
