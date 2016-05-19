@@ -11,9 +11,7 @@
 
 namespace Glory\Bundle\MenuBundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
@@ -22,30 +20,25 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  *
  * @author ForeverGlory <foreverglory@qq.com>
  */
-class LinkType extends AbstractType
+class LinkType extends AttributesType
 {
 
     public function buildForm(FormBuilderInterface $builder, array $options = array())
     {
         $builder
                 ->add('target', ChoiceType::class, array(
+                    'required' => false,
                     'choices' => array(
-                        '' => 'Default (Current Window)',
                         '_blank' => 'New Window',
                         '_parent' => 'Parent Window',
                         'iframe' => 'iFrame'
                     ),
-                    'required' => false
-                ))
-                ->add('class', TextType::class, array(
-                    'label' => 'Class',
-                    'required' => false
-                ))
-                ->add('id', null, array(
-                    'label' => 'Id',
-                    'required' => false
+                    'placeholder' => 'Default (Current Window)',
+                    'label' => 'form.target',
+                    'translation_domain' => 'GloryMenuBundle'
                 ))
         ;
+        parent::buildForm($builder, $options);
     }
 
     /**
