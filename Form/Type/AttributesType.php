@@ -27,10 +27,14 @@ class AttributesType extends AbstractType
     {
         $builder
                 ->add('class', null, array(
-                    'required' => false
+                    'required' => false,
+                    'label' => 'form.class',
+                    'translation_domain' => 'GloryMenuBundle'
                 ))
                 ->add('id', null, array(
-                    'required' => false
+                    'required' => false,
+                    'label' => 'form.id',
+                    'translation_domain' => 'GloryMenuBundle'
                 ))
         ;
     }
