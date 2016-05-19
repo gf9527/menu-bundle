@@ -45,6 +45,23 @@ class Menu extends MenuItem implements MenuInterface
         return $this->id;
     }
 
+    public function getChildren()
+    {
+        $children = parent::getChildren();
+        if (!is_array($children)) {
+            $data = [];
+            try {
+                foreach ($children as $name => $child) {
+                    $data[$name] = $child;
+                }
+            } catch (Exception $exc) {
+                
+            }
+            $children = $data;
+        }
+        return $children;
+    }
+
     public function setExpand($expand)
     {
         $this->expand = $expand;
