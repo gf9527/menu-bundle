@@ -16,6 +16,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Glory\Bundle\MenuBundle\Model\MenuManager;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Glory\Bundle\MenuBundle\Model\MenuInterface;
+use Symfony\Component\Form\Extension\Core\ChoiceList\ChoiceList;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -38,6 +39,8 @@ class MenuType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options = array())
     {
+        $menuRoot = $options['data']->getRoot();
+        $choice = $this->generateChildrenChoice($menuRoot);
         $builder
                 ->add('name', null, array('label' => 'form.menu_name', 'translation_domain' => 'GloryMenuBundle'))
                 ->add('label', null, array('label' => 'form.menu_label', 'translation_domain' => 'GloryMenuBundle'))
@@ -48,6 +51,10 @@ class MenuType extends AbstractType
                 ))
                 ->add('linkAttributes', 'glory_menu_link', array(
                     'label' => 'form.menu_linkAttributes',
+                    'translation_domain' => 'GloryMenuBundle'
+                ))
+                ->add('childrenAttributes', 'glory_menu_attributes', array(
+                    'label' => 'form.menu_childrenAttributes',
                     'translation_domain' => 'GloryMenuBundle'
                 ))
                 ->add('display', 'checkbox', array(
@@ -61,13 +68,9 @@ class MenuType extends AbstractType
                     'translation_domain' => 'GloryMenuBundle'
                 ))
                 ->add('parent', 'entity', array(
-                    'class' => $this->menuManager->getClass(), //'AppBundle:Menu',
+                    'class' => $this->menuManager->getClass(),
                     'property' => 'label',
-                    'query_builder' => function(EntityRepository $er) {
-                        return $er->createQueryBuilder('m')
-                                ->where('m.parent is null')
-                                ->orderBy('m.name', 'desc');
-                    },
+                    'choices' => $choice,
                     'label' => 'form.menu_parent',
                     'translation_domain' => 'GloryMenuBundle'
                 ))
@@ -76,6 +79,19 @@ class MenuType extends AbstractType
                     'translation_domain' => 'GloryMenuBundle'
                 ))
         ;
+    }
+
+    protected function generateChildrenChoice($menu)
+    {
+        $choice = array(
+            $menu->getName() => $menu//$menu->getLevel(). $menu->getLabel()
+        );
+        if ($menu->hasChildren()) {
+            foreach ($menu->getChildren() as $item) {
+                $choice = array_merge($choice, $this->generateChildrenChoice($item));
+            }
+        }
+        return $choice;
     }
 
     /**
