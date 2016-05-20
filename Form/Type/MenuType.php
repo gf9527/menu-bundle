@@ -69,7 +69,7 @@ class MenuType extends AbstractType
                 ))
                 ->add('parent', 'entity', array(
                     'class' => $this->menuManager->getClass(),
-                    'property' => 'label',
+                    'property' => 'treename',
                     'choices' => $choice,
                     'label' => 'form.menu_parent',
                     'translation_domain' => 'GloryMenuBundle'

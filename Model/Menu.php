@@ -107,4 +107,9 @@ class Menu extends MenuItem implements MenuInterface
         return $this->weight;
     }
 
+    public function getTreeName()
+    {
+        return str_pad('', $this->getLevel(), "-", STR_PAD_LEFT). $this->getLabel();
+    }
+
 }
