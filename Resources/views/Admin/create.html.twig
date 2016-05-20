@@ -1,0 +1,10 @@
+{% extends "GloryMenuBundle::layout.html.twig" %}
+
+{% block content %}
+
+    <form action="{{path('glory_menu_create',{name:name})}}" method="post">
+        {{form_widget(form)}}
+        <input type="submit" value="save" />
+    </form>
+
+{% endblock %}
