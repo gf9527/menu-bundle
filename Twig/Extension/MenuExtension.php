@@ -31,10 +31,27 @@ class MenuExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction('menu_render', array($this, 'render')),
+            new \Twig_SimpleFunction('menu_get', array($this, 'get')),
+            new \Twig_SimpleFunction('menu_render', array($this, 'render'), array('is_safe' => array('html'))),
         );
     }
 
+    /**
+     * get menu by name
+     * 
+     * @return ItemInterface
+     */
+    public function get($menu, array $options = array())
+    {
+        return $this->helper->get($menu, [], $options);
+    }
+
+    /**
+     * 
+     * @param type $name
+     * @param type $options
+     * @return string
+     */
     public function render($name, $options = [])
     {
         $menu = $this->helper->get($name, [], $options);
