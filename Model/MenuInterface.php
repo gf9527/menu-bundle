@@ -3,7 +3,7 @@
 /*
  * This file is part of the current project.
  * 
- * (c) ForeverGlory <http://foreverglory.me/>
+ * (c) ForeverGlory <https://foreverglory.me/>
  * 
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -20,6 +20,8 @@ use Knp\Menu\ItemInterface;
  */
 interface MenuInterface extends ItemInterface
 {
+
+    public function getTreeName();
 
     public function setWeight($weight);
 

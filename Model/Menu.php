@@ -3,7 +3,7 @@
 /*
  * This file is part of the current project.
  * 
- * (c) ForeverGlory <http://foreverglory.me/>
+ * (c) ForeverGlory <https://foreverglory.me/>
  * 
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -120,7 +120,9 @@ class Menu extends MenuItem implements MenuInterface
 
     public function getTreeName()
     {
-        return str_pad('', $this->getLevel(), "-", STR_PAD_LEFT) . $this->getLabel();
+        $left = '　';
+        $right = '└─ ';
+        return str_pad($right, $this->getLevel() * strlen($left) + strlen($right), $left, STR_PAD_LEFT) . $this->getLabel();
     }
 
 }
