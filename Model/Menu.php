@@ -12,9 +12,13 @@
 namespace Glory\Bundle\MenuBundle\Model;
 
 use Knp\Menu\MenuItem;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Description of Menu
+ * 
+ * @UniqueEntity("name")
  *
  * @author ForeverGlory <foreverglory@qq.com>
  */
@@ -25,6 +29,13 @@ class Menu extends MenuItem implements MenuInterface
      * id
      */
     protected $id;
+
+    /**
+     * name
+     * 
+     * @Assert\NotBlank()
+     */
+    protected $name;
 
     /**
      * attributes,linkAttributes,childrenAttributes explain
@@ -109,7 +120,7 @@ class Menu extends MenuItem implements MenuInterface
 
     public function getTreeName()
     {
-        return str_pad('', $this->getLevel(), "-", STR_PAD_LEFT). $this->getLabel();
+        return str_pad('', $this->getLevel(), "-", STR_PAD_LEFT) . $this->getLabel();
     }
 
 }
