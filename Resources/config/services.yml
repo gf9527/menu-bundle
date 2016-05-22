@@ -7,6 +7,8 @@ services:
         arguments: [@glory_menu.menu_manager]
         tags:
           - { name: knp_menu.provider }
+    glory_menu.util.menu_tree:
+        class: Glory\Bundle\MenuBundle\Util\MenuTree
 
     glory_menu.form.menu_type:
         class: Glory\Bundle\MenuBundle\Form\Type\MenuType
