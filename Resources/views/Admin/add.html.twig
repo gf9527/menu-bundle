@@ -2,9 +2,9 @@
 
 {% block content %}
 
-    <form action="{{path('glory_menu_create')}}" method="post">
+    <form action="{{path('glory_menu_add',{id:id})}}" method="post">
         {{form_widget(form)}}
-        <input type="submit" value="save" />
+        <input type="submit" value="Add Item" />
     </form>
 
 {% endblock %}

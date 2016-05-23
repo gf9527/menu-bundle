@@ -1,0 +1,21 @@
+{% macro item(item) %}
+    <li>
+        <span class="handle">
+            <i class="fa fa-ellipsis-v"></i>
+            <i class="fa fa-ellipsis-v"></i>
+        </span>
+        <span class="text">{{item.label}}</span>
+
+        <small class="label label-danger"><i class="fa fa-link"></i> {{item.uri}}</small>
+        <div class="tools">
+            <a href="{{path('glory_menu_edit',{name:item.name})}}">
+                <i class="fa fa-edit"></i>
+            </a>
+            <a href="{{path('glory_menu_delete',{name:item.name})}}">
+                <i class="fa fa-trash-o"></i>
+            </a>
+        </div>
+        {% if item.children %}
+        {% endif %}
+    </li>
+{% endmacro %}

@@ -1,5 +1,33 @@
 {% extends "GloryMenuBundle::layout.html.twig" %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js" ></script>
+{% endblock %}
 {% block content %}
-    {{ knp_menu_render(name) }}
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title"><a href="{{path('glory_menu_add',{id:menu.id})}}" class="btn btn-success">Add Item</a></h3>
+            <div class="box-tools">
+
+            </div>
+        </div>
+        <div class="box-body">
+            <div id="html1">
+                <ul>
+                    <li>{{menu.label}}
+                        <ul>                         
+                            {% for item in menu.children %}
+                                <li><a href="#"> {{ item.label }}</a></li>
+                                {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-default">保存</button>
+        </div>
+    </div>
 {% endblock %}
