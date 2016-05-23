@@ -17,6 +17,11 @@ services:
     glory_menu.util.menu_tree:
         class: Glory\Bundle\MenuBundle\Util\MenuTree
 
+    glory_menu.form.menu:
+        class: Glory\Bundle\MenuBundle\Form\Type\MenuFormType
+        arguments: [@glory_menu.menu_manager]
+        tags:
+            - { name: form.type, alias: glory_menu_form }
     glory_menu.form.menu_type:
         class: Glory\Bundle\MenuBundle\Form\Type\MenuType
         arguments: [@glory_menu.menu_manager]
