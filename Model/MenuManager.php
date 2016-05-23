@@ -58,7 +58,11 @@ class MenuManager
     public function findMenu($criteria)
     {
         $repository = $this->getDoctrine()->getRepository($this->getClass());
-        return $repository->findOneBy($criteria);
+        if (is_array($criteria)) {
+            return $repository->findOneBy($criteria);
+        } else {
+            return $repository->find($criteria);
+        }
     }
 
     public function findMenus($criteria)
