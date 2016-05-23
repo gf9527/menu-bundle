@@ -25,7 +25,7 @@ interface MenuInterface extends ItemInterface
 
     public function getRoute();
 
-    public function setUrl($link);
+    public function setLink($link);
 
     public function getLink();
 
