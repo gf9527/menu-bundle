@@ -76,6 +76,12 @@ class Menu extends MenuItem implements MenuInterface
         return $this->id;
     }
 
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
     public function setRoute($route, $parameters = [])
     {
         $this->route = [$route, $parameters];
