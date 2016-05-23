@@ -3,7 +3,7 @@
 /*
  * This file is part of the current project.
  * 
- * (c) ForeverGlory <http://foreverglory.me/>
+ * (c) ForeverGlory <https://foreverglory.me/>
  * 
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -52,10 +52,12 @@ class MenuExtension extends \Twig_Extension
      * @param type $options
      * @return string
      */
-    public function render($name, $options = [])
+    public function render($name, $options = [], $renderer = null)
     {
         $menu = $this->helper->get($name, [], $options);
-        $renderer = $menu->getTemplate();
+        if (empty($options['template']) && $template = $menu->getTemplate()) {
+            $options['template'] = $template;
+        }
         return $this->helper->render($menu, $options, $renderer);
     }
 
