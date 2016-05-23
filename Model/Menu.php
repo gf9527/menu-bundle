@@ -88,6 +88,12 @@ class Menu extends MenuItem implements MenuInterface
             }
             $children = $data;
         }
+        uasort($children, function(MenuInterface $a, MenuInterface $b) {
+            if ($a->getWeight() == $b->getWeight()) {
+                return 0;
+            }
+            return ($a->getWeight() < $b->getWeight()) ? 1 : -1;
+        });
         return $children;
     }
 
