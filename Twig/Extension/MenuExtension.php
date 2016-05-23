@@ -12,6 +12,7 @@
 namespace Glory\Bundle\MenuBundle\Twig\Extension;
 
 use Knp\Menu\Twig\Helper;
+use Glory\Bundle\MenuBundle\Model\MenuManager;
 
 /**
  * Description of Menu
@@ -21,19 +22,27 @@ use Knp\Menu\Twig\Helper;
 class MenuExtension extends \Twig_Extension
 {
 
-    private $helper;
+    protected $helper;
+    protected $menuManager;
 
-    public function __construct(Helper $helper)
+    public function __construct(Helper $helper, MenuManager $menuManager)
     {
         $this->helper = $helper;
+        $this->menuManager = $menuManager;
     }
 
     public function getFunctions()
     {
         return array(
+            new \Twig_SimpleFunction('menu_roots', array($this, 'getRoots')),
             new \Twig_SimpleFunction('menu_get', array($this, 'get')),
             new \Twig_SimpleFunction('menu_render', array($this, 'render'), array('is_safe' => array('html'))),
         );
+    }
+
+    public function getRoots()
+    {
+        return $this->menuManager->findMenus();
     }
 
     /**
