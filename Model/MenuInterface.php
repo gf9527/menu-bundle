@@ -21,6 +21,14 @@ use Knp\Menu\ItemInterface;
 interface MenuInterface extends ItemInterface
 {
 
+    public function setRoute($route);
+
+    public function getRoute();
+
+    public function setUrl($link);
+
+    public function getLink();
+
     public function getTreeName();
 
     public function setIcon($icon);

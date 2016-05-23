@@ -46,6 +46,20 @@ class Menu extends BaseMenu
     protected $label = null;
 
     /**
+     * Route
+     *
+     * @ORM\Column(name="route", type="array")
+     */
+    protected $route;
+
+    /**
+     * Link
+     *
+     * @ORM\Column(name="link", type="string", nullable=true)
+     */
+    protected $link;
+
+    /**
      * Uri
      *
      * @ORM\Column(name="uri", type="string", nullable=true)

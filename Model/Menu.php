@@ -36,6 +36,8 @@ class Menu extends MenuItem implements MenuInterface
      * @Assert\NotBlank()
      */
     protected $name;
+    protected $route;
+    protected $link;
 
     /**
      * attributes,linkAttributes,childrenAttributes explain
@@ -72,6 +74,28 @@ class Menu extends MenuItem implements MenuInterface
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setRoute($route, $parameters = [])
+    {
+        $this->route = [$route, $parameters];
+        return $this;
+    }
+
+    public function getRoute()
+    {
+        return $this->route;
+    }
+
+    public function setLink($link)
+    {
+        $this->link = $link;
+        return $this;
+    }
+
+    public function getLink()
+    {
+        return $this->link;
     }
 
     public function getChildren()
