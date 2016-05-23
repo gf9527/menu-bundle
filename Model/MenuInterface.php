@@ -23,6 +23,14 @@ interface MenuInterface extends ItemInterface
 
     public function getTreeName();
 
+    public function setIcon($icon);
+
+    public function getIcon();
+
+    public function setTemplate($template);
+
+    public function getTemplate();
+
     public function setWeight($weight);
 
     public function getWeight();

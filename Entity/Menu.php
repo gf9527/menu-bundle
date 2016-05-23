@@ -3,7 +3,7 @@
 /*
  * This file is part of the current project.
  * 
- * (c) ForeverGlory <http://foreverglory.me/>
+ * (c) ForeverGlory <https://foreverglory.me/>
  * 
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -67,18 +67,11 @@ class Menu extends BaseMenu
     protected $display = true;
 
     /**
-     * expand children
+     * Extras
      *
-     * @ORM\Column(name="expand", type="boolean")
+     * @ORM\Column(name="extras", type="array")
      */
-    protected $expand = true;
-
-    /**
-     * Child items
-     *
-     * @ORM\OneToMany(targetEntity="Menu", mappedBy="parent", cascade={"all"})
-     */
-    protected $children = array();
+    protected $extras = array();
 
     /**
      * Attributes
@@ -100,6 +93,13 @@ class Menu extends BaseMenu
      * @ORM\Column(name="children_attrs", type="array")
      */
     protected $childrenAttributes = array();
+
+    /**
+     * Child items
+     *
+     * @ORM\OneToMany(targetEntity="Menu", mappedBy="parent", cascade={"all"})
+     */
+    protected $children = array();
 
     /**
      * Parent item

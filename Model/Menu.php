@@ -91,22 +91,6 @@ class Menu extends MenuItem implements MenuInterface
         return $children;
     }
 
-    public function setExpand($expand)
-    {
-        $this->expand = $expand;
-        return $this;
-    }
-
-    public function getExpand()
-    {
-        return $this->expand;
-    }
-
-    public function getDisplay()
-    {
-        return $this->display;
-    }
-
     public function setWeight($weight)
     {
         $this->weight = $weight;
@@ -116,6 +100,26 @@ class Menu extends MenuItem implements MenuInterface
     public function getWeight()
     {
         return $this->weight;
+    }
+
+    public function setIcon($icon)
+    {
+        return $this->setExtra('icon', $icon);
+    }
+
+    public function getIcon()
+    {
+        return $this->getExtra('icon');
+    }
+
+    public function setTemplate($template)
+    {
+        return $this->setExtra('template', $template);
+    }
+
+    public function getTemplate()
+    {
+        return $this->getExtra('template');
     }
 
     public function getTreeName()
