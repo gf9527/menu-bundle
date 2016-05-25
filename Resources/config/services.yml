@@ -16,6 +16,9 @@ services:
           
     glory_menu.util.menu_tree:
         class: Glory\Bundle\MenuBundle\Util\MenuTree
+    glory_menu.util.url:
+        class: Glory\Bundle\MenuBundle\Util\MenuUrl
+        arguments: [@router]
 
     glory_menu.form.menu:
         class: Glory\Bundle\MenuBundle\Form\Type\MenuFormType
