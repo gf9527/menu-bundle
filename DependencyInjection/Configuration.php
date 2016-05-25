@@ -33,6 +33,7 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('glory_menu');
 
         $this->addMenuClassConfiguration($rootNode);
+        $this->addMenuTemplateConfiguration($rootNode);
 
         return $treeBuilder;
     }
@@ -42,6 +43,15 @@ class Configuration implements ConfigurationInterface
         $node
             ->children()
                 ->scalarNode('menu_class')->isRequired()->info('menu class must required')->example('AppBundle\\Entity\\Menu')->end()
+            ->end();
+    }
+    
+    protected function addMenuTemplateConfiguration(ArrayNodeDefinition $node){
+        $node
+            ->children()
+                ->arrayNode('template')
+                //->useAttributeAsKey('name')
+                ->end()
             ->end();
     }
 
