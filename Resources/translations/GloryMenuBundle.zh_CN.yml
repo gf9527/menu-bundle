@@ -7,7 +7,9 @@ form:
     menu_uri: Uri
     menu_attributes: 属性
     menu_linkAttributes: 链接属性
+    menu_childrenAttributes: 子类属性
     menu_display: 显示
     menu_expand: 展开
     menu_parent: 上级菜单
     menu_weight: 权重
+    menu_template: 模板
