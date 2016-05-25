@@ -62,18 +62,6 @@ class MenuType extends AbstractType
                     'label' => 'form.menu_display',
                     'translation_domain' => 'GloryMenuBundle'
                 ))
-                ->add('expand', 'checkbox', array(
-                    'value' => true,
-                    'label' => 'form.menu_expand',
-                    'translation_domain' => 'GloryMenuBundle'
-                ))
-                ->add('parent', 'entity', array(
-                    'class' => $this->menuManager->getClass(),
-                    'property' => 'treename',
-                    'choices' => $choice,
-                    'label' => 'form.menu_parent',
-                    'translation_domain' => 'GloryMenuBundle'
-                ))
                 ->add('weight', 'integer', array(
                     'label' => 'form.menu_weight',
                     'translation_domain' => 'GloryMenuBundle'
@@ -100,7 +88,7 @@ class MenuType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => MenuInterface::class
+            'data_class' => $this->menuManager->getClass()
         ));
     }
 
