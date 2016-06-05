@@ -64,8 +64,8 @@ class MenuExtension extends \Twig_Extension
     public function render($name, $options = [], $renderer = null)
     {
         $menu = $this->helper->get($name, [], $options);
-        if (empty($options['template']) && $template = $menu->getTemplate()) {
-            $options['template'] = $template;
+        if (empty($options['template'])) {
+            $options['template'] = $menu->getTemplate() ? : 'GloryMenuBundle:Menu:menu.html.twig';
         }
         return $this->helper->render($menu, $options, $renderer);
     }
