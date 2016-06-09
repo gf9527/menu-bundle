@@ -42,7 +42,7 @@ class Configuration implements ConfigurationInterface
     {
         $node
             ->children()
-                ->scalarNode('menu_class')->isRequired()->info('menu class must required')->example('AppBundle\\Entity\\Menu')->end()
+                ->scalarNode('menu_class')->defaultValue('Glory\\Bundle\\MenuBundle\\Entity\\Menu')->info('menu class must required')->example('AppBundle\\Entity\\Menu')->end()
             ->end();
     }
     
