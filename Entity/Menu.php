@@ -18,6 +18,8 @@ use Glory\Bundle\MenuBundle\Model\Menu as BaseMenu;
  * Menu Entity
  * 
  * @ORM\MappedSuperclass
+ * @ORM\Entity
+ * @ORM\Table("menu")
  *
  * @author ForeverGlory <foreverglory@qq.com>
  */
