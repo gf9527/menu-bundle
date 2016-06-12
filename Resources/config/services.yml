@@ -38,3 +38,8 @@ services:
         class: Glory\Bundle\MenuBundle\Form\Type\LinkType
         tags:
             - { name: form.type, alias: glory_menu_link }
+
+    glory_menu.event.route_listener:
+        class: Glory\Bundle\MenuBundle\EventListener\RouteListener
+        tags:
+            -  { name: doctrine.event_subscriber }
