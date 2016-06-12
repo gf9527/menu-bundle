@@ -41,5 +41,6 @@ services:
 
     glory_menu.event.route_listener:
         class: Glory\Bundle\MenuBundle\EventListener\RouteListener
+        arguments: [@router]
         tags:
             -  { name: doctrine.event_subscriber }

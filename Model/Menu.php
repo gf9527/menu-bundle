@@ -14,6 +14,7 @@ namespace Glory\Bundle\MenuBundle\Model;
 use Knp\Menu\MenuItem;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Routing\Router;
 
 /**
  * Description of Menu
@@ -64,11 +65,21 @@ class Menu extends MenuItem implements MenuInterface
     protected $expand = true;
     protected $weight;
 
+    /**
+     * @var Router 
+     */
+    protected $router;
+
     public function __construct($name = null)
     {
         if ($name) {
             $this->name = (string) $name;
         }
+    }
+
+    public function setRouter(Router $router)
+    {
+        $this->router = $router;
     }
 
     public function getId()
@@ -80,6 +91,15 @@ class Menu extends MenuItem implements MenuInterface
     {
         $this->name = $name;
         return $this;
+    }
+
+    public function getUri()
+    {
+        if ($this->route) {
+            list($route, $parameters) = $this->route;
+            return $this->router->generate($route, $parameters);
+        }
+        return parent::getUri();
     }
 
     public function setRoute($route, $parameters = [])

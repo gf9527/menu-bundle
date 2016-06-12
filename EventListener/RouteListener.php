@@ -15,6 +15,7 @@ use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Events;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 use Glory\Bundle\MenuBundle\Model\MenuInterface;
+use Symfony\Component\Routing\Router;
 
 /**
  * Description of RouteListener
@@ -23,6 +24,13 @@ use Glory\Bundle\MenuBundle\Model\MenuInterface;
  */
 class RouteListener implements EventSubscriber
 {
+
+    protected $router;
+
+    public function __construct(Router $router)
+    {
+        $this->router = $router;
+    }
 
     public function getSubscribedEvents()
     {
@@ -40,7 +48,7 @@ class RouteListener implements EventSubscriber
     {
         $object = $args->getObject();
         if ($object instanceof MenuInterface) {
-            
+            $object->setRouter($this->router);
         }
     }
 
